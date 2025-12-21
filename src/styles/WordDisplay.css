@@ -1,0 +1,20 @@
+.word-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+.letter{
+    font-size: 18px;
+    font-weight: 700;
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+    background-color: #323232;
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 1px #F9F4DA;
+}

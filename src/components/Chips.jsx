@@ -5,8 +5,16 @@ import { languages } from '../../src/language.js'
 export default function Chips() {
 
   const languagesList = languages.map((lang)=>{
+
+  const chipStyle = {
+   
+    backgroundColor:lang.backgroundColor,
+    color:lang.color,
+   
+  }
+
     return(
-      <span>{lang.name}</span>
+      <span className='chip' style={chipStyle}>{lang.name}</span>
     )
 
   })

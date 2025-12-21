@@ -1,5 +1,18 @@
-/* .chips{
+.chips{
     display: flex;
-    gap: 10px;
+    
     flex-wrap: wrap;
-} */
+    gap: 10px;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+    margin-block : 30px;
+    
+}
+.chip{
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor:pointer;
+}
