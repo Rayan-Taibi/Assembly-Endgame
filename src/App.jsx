@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from './components/Header.jsx'
 import Status from './components/Status.jsx'
+import './components/Chips.jsx'
+import Chips from './components/Chips.jsx'
 function App() {
   
   const [status,setStatus]=React.useState({
@@ -11,6 +13,7 @@ function App() {
     <>
     <Header />
     <Status status={status} />
+    <Chips />
     </> 
   )
 }

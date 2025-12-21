@@ -1,4 +1,6 @@
 header {
+    display: flex;
+    flex-direction: column;
     text-align: center;  
     padding: 20px;           
 }
@@ -10,4 +12,5 @@ header p {
     font-size: 1.1rem;       
     max-width: 350px;  
     color: #8E8E8E;
+    text-align: center;
 }
