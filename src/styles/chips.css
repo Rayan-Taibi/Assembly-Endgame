@@ -1,9 +1,8 @@
 .chips{
     display: flex;
-    
     flex-wrap: wrap;
-    gap: 10px;
-    width: 350px;
+    gap: 1px;
+    max-width: 450px;
     align-items: center;
     justify-content: center;
     margin-block : 30px;

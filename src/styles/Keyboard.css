@@ -5,8 +5,9 @@
     align-items: center;
     text-align: center;
     gap: 8px;
-    max-width: 480px;
-    margin-top: 30px;
+    max-width: 450px;
+    margin-block: 30px;
+
 }
 .key{
     width: 40px;

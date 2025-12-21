@@ -15,13 +15,23 @@ function App() {
 
   
   return (
-    <>
+  <>
     <Header />
     <Status status={status} />
     <Chips />
     <WordDisplay />
     <Keyboard />
-    </> 
+     <button style={{ 
+      backgroundColor: "#11B5E5",
+       border: "1px solid #D7D7D7",
+       borderRadius: "4px",
+       width: "225px",
+       height: "40px",
+       padding: "6px 12px",
+       display: "block",
+       marginInline: "auto",
+       cursor: "pointer"}} className="new-game">New Game</button>
+  </> 
   )
 }
 

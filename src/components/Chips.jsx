@@ -7,20 +7,19 @@ export default function Chips() {
   const languagesList = languages.map((lang)=>{
 
   const chipStyle = {
-   
     backgroundColor:lang.backgroundColor,
     color:lang.color,
    
   }
 
     return(
-      <span className='chip' style={chipStyle}>{lang.name}</span>
+      <span key={lang.name} className='chip' style={chipStyle}>{lang.name}</span>
     )
 
   })
 
   return (
-    <div className='chips'>
+    <div  className='chips'>
         {languagesList}
     </div>
   )
