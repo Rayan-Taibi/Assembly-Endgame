@@ -1,9 +1,8 @@
 import React from 'react'   
 import '../styles/Keyboard.css'
-import {clsx} from 'clsx'
+import clsx from 'clsx'
 
-export default function Keyboard({CurrentWord} ) {
-   const [guessedLetters,setGuessedLetters] = React.useState([])
+export default function Keyboard({CurrentWord , guessedLetters , setGuessedLetters}) {
 
    const alphabet = "abcdefghijklmnopqrstuvwxyz"
    
@@ -16,7 +15,6 @@ export default function Keyboard({CurrentWord} ) {
     const buttonClass = clsx({
       correct: isCorrect,
       wrong: isWrong,
-     
    })
       
 
@@ -31,6 +29,7 @@ export default function Keyboard({CurrentWord} ) {
      </button>
      )
    })
+
 
    
      function addGuessedLetter(letter) {
