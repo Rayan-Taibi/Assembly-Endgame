@@ -11,7 +11,12 @@ function App() {
     title:"You win",
     subtitle :"Well done ! "
   })
- 
+   const [CurrentWord, setCurrentWord] = React.useState("react")
+    const letterElements = CurrentWord.split('').map((letter, index) => (
+    <span key={index} className="letter">
+      {letter.toUpperCase()}
+    </span>
+  ));
 
   
   return (
@@ -19,8 +24,8 @@ function App() {
     <Header />
     <Status status={status} />
     <Chips />
-    <WordDisplay />
-    <Keyboard />
+    <WordDisplay letterElements={letterElements} CurrentWord={CurrentWord} />
+    <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} />
      <button style={{ 
       backgroundColor: "#11B5E5",
        border: "1px solid #D7D7D7",

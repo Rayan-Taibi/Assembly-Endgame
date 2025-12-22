@@ -1,25 +1,50 @@
 import React from 'react'   
 import '../styles/Keyboard.css'
+import {clsx} from 'clsx'
 
-export default function Keyboard() {
-   const alphabet = "abcdefghijklmnopqrstuvwxyz"
-   const alphabetLetters = alphabet.split('').map((alphabetletter , index) =>(
-    <button onClick={() => addGuessedLetter(alphabetletter)} key={index} className='key'>{alphabetletter.toUpperCase()}</button>
-   ))
-
+export default function Keyboard({CurrentWord} ) {
    const [guessedLetters,setGuessedLetters] = React.useState([])
-   function addGuessedLetter(letter) {
+
+   const alphabet = "abcdefghijklmnopqrstuvwxyz"
+   
+
+   const keyboardLetters = alphabet.split('').map((letter , index)  =>{
+     
+    const isGuessed = guessedLetters.includes(letter)
+    const isCorrect = isGuessed && CurrentWord.includes(letter)
+    const isWrong = isGuessed && !CurrentWord.includes(letter) 
+    const buttonClass = clsx({
+      correct: isCorrect,
+      wrong: isWrong,
+     
+   })
+      
+
+     
+     return (
+     <button 
+     onClick={() => addGuessedLetter(letter)}
+     key={index} 
+     className= {buttonClass}
+     >
+      {letter.toUpperCase()}
+     </button>
+     )
+   })
+
+   
+     function addGuessedLetter(letter) {
     setGuessedLetters(
        prev => prev.includes(letter) ?
-        prev : [...prev , letter]
+       prev : [...prev , letter]
       )
   }
 
-   console.log(guessedLetters)
+   
 
   return (
     <section className='keyboard'>
-         {alphabetLetters}
+         {keyboardLetters}
     </section>
   )
 }

@@ -9,7 +9,7 @@
     margin-block: 30px;
 
 }
-.key{
+section.keyboard > button{
     width: 40px;
     height: 40px;
     background-color: #FCBA29;
@@ -18,4 +18,11 @@
     border-radius: 4px;
 
 
+}
+section.keyboard > button.correct {
+    background-color: #10A95B;
+}
+
+section.keyboard > button.wrong {
+    background-color: #EC5D49;
 }
