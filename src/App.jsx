@@ -7,6 +7,7 @@ import WordDisplay from './components/WordDisplay.jsx'
 import Keyboard from './components/Keyboard.jsx'
 import { languages } from './language.js'
 import {clsx} from 'clsx'
+import {getFarewellText} from '../utils.js'
 
 function App() {
   // State to hold guessed letters and current word
@@ -39,35 +40,43 @@ function App() {
   const isGameWon = CurrentWord.split('').every(letter => guessedLetters.includes(letter))
   const isGameLost = WrongGuessesCount >= languages.length -1
   const isGameOver = isGameWon || isGameLost
+  const lastGuressedLetter = guessedLetters[guessedLetters.length -1]
+  const islastGuessedLetterWrong = lastGuressedLetter && !CurrentWord.includes(lastGuressedLetter)
 
-  function handleNewGame() {
-      
-      setGuessedLetters([])
-      setCurrentWord("javascript")
-      WrongGuessesCount=0
-    
-    
-  }
   
  
+   function renderGameStatus() {
+        if (!isGameOver && !islastGuessedLetterWrong) {
+            return (
+              <p className='farewell-message'>
+                 {getFarewellText(languages[WrongGuessesCount - 1].name)}
+              </p>
+            )
+        }
+
+        if (isGameWon) {
+            return (
+                <>
+                    <h2>You win!</h2>
+                    <p>Well done! 🎉</p>
+                </>
+            )
+        } if(isGameLost) {
+            return (
+                <>
+                    <h2>Game over!</h2>
+                    <p>You lose! Better start learning Assembly 😭</p>
+                </>
+            )
+        }
+       
+          return null
+        
+    }
   
-  const status =
-  ( isGameWon ?
-  {
-     title:"You Won!",
-     subtitle:"Well done!"
-  }
-  : isGameLost ? {
-      title:"You Lost!",
-      subtitle:`The word was ${CurrentWord.toUpperCase()}`
-  }:
-  {
-    
-  }
-)
   const classNamesStatus  = clsx('status', isGameWon && 'won', isGameLost && 'lost')
    
-
+ 
     
 
 
@@ -75,7 +84,7 @@ function App() {
   return (
   <>
     <Header />
-    <Status status={status} classNamesStatus={classNamesStatus}/>
+    <Status renderGameStatus={renderGameStatus()} classNamesStatus={classNamesStatus}/>
     <Chips languagesList={languagesList} />
     <WordDisplay letterElements={letterElements} CurrentWord={CurrentWord} guessedLetters={guessedLetters} />
     <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
