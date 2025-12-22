@@ -1,5 +1,22 @@
-
 .status{
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    
+  
+    
+}
+.lost{
+    text-align: center;
+    padding: 3px 0 3px 0;
+    color: white;
+    background-color: #E63946;
+    border-radius: 4px;
+    line-height: 10px;  
+   
+}
+.won{
     text-align: center;
     padding: 3px 0 3px 0;
     color: white;

@@ -49,10 +49,23 @@ function App() {
     
   }
   
-  const [status,setStatus]=React.useState({
-    title:"You win",
-    subtitle :"Well done ! "
-  })
+ 
+  
+  const status =
+  ( isGameWon ?
+  {
+     title:"You Won!",
+     subtitle:"Well done!"
+  }
+  : isGameLost ? {
+      title:"You Lost!",
+      subtitle:`The word was ${CurrentWord.toUpperCase()}`
+  }:
+  {
+    
+  }
+)
+  const classNamesStatus  = clsx('status', isGameWon && 'won', isGameLost && 'lost')
    
 
     
@@ -62,7 +75,7 @@ function App() {
   return (
   <>
     <Header />
-    <Status status={status} />
+    <Status status={status} classNamesStatus={classNamesStatus}/>
     <Chips languagesList={languagesList} />
     <WordDisplay letterElements={letterElements} CurrentWord={CurrentWord} guessedLetters={guessedLetters} />
     <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
