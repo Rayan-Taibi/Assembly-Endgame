@@ -46,7 +46,7 @@ function App() {
   
  
    function renderGameStatus() {
-        if (!isGameOver && !islastGuessedLetterWrong) {
+        if (!isGameOver && islastGuessedLetterWrong) {
             return (
               <p className='farewell-message'>
                  {getFarewellText(languages[WrongGuessesCount - 1].name)}
@@ -74,7 +74,11 @@ function App() {
         
     }
   
-  const classNamesStatus  = clsx('status', isGameWon && 'won', isGameLost && 'lost')
+  const classNamesStatus  = clsx('status' , {
+    won: isGameWon,
+    lost: isGameLost,
+    farewellMessage: !isGameOver && islastGuessedLetterWrong
+})
    
  
     
@@ -82,12 +86,13 @@ function App() {
 
   
   return (
-  <>
+  <main>
+   
     <Header />
     <Status renderGameStatus={renderGameStatus()} classNamesStatus={classNamesStatus}/>
     <Chips languagesList={languagesList} />
     <WordDisplay letterElements={letterElements} CurrentWord={CurrentWord} guessedLetters={guessedLetters} />
-    <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
+    <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} isGameOver={isGameOver}/>
      {isGameOver && <button
       style={{ 
       backgroundColor: "#11B5E5",
@@ -101,7 +106,7 @@ function App() {
        cursor: "pointer"}} className="new-game">
         New Game
       </button>}
-  </> 
+  </main> 
   )
 }
 

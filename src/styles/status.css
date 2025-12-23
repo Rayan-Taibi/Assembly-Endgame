@@ -1,33 +1,38 @@
 .status{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #F9F4DA;
     width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 10px;
+    max-width: 350px;
+    min-height: 50px;
+    border-radius: 4px;
+    margin-block: 15px;
     
   
     
 }
-.lost{
-    text-align: center;
-    padding: 3px 0 3px 0;
-    color: white;
-    background-color: #E63946;
-    border-radius: 4px;
-    line-height: 10px;  
+.status.lost{
+    background-color: #BA2A2A; 
+    
    
 }
-.won{
-    text-align: center;
-    padding: 3px 0 3px 0;
-    color: white;
-    background-color: #10A95B;
-    border-radius: 4px;
-    line-height: 10px;  
+.status.won{
+      background-color: #10A95B; 
+     
+   
+}
+.status.farewellMessage{
+    background-color: #7A5EA7;
+    border: 1px dashed #323232;
    
 }
 .status h2{
     font-size: 1.25rem;
+     margin: 8px 0 0 0;
 }
 .status p{
-    font-size: 0.875rem;
+    font-size: 0.875rem;  
+    margin: 4px 0 8px 0; 
 }

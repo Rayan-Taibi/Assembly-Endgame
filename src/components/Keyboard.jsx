@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/Keyboard.css'
 import clsx from 'clsx'
 
-export default function Keyboard({CurrentWord , guessedLetters , setGuessedLetters}) {
+export default function Keyboard({CurrentWord , guessedLetters , setGuessedLetters , isGameOver}) {
 
    const alphabet = "abcdefghijklmnopqrstuvwxyz"
    
@@ -24,6 +24,7 @@ export default function Keyboard({CurrentWord , guessedLetters , setGuessedLette
      onClick={() => addGuessedLetter(letter)}
      key={index} 
      className= {buttonClass}
+     disabled={isGameOver || isGuessed}
      >
       {letter.toUpperCase()}
      </button>

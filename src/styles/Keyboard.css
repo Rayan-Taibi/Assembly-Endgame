@@ -26,3 +26,7 @@ section.keyboard > button.correct {
 section.keyboard > button.wrong {
     background-color: #EC5D49;
 }
+.keyboard button:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
