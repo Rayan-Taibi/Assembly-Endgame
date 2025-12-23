@@ -8,11 +8,12 @@ import Keyboard from './components/Keyboard.jsx'
 import { languages } from './language.js'
 import {clsx} from 'clsx'
 import {getFarewellText} from '../utils.js'
+import {GetRandomWord} from '../utils.js'
 
 function App() {
   // State to hold guessed letters and current word
   const [guessedLetters,setGuessedLetters] = React.useState([])
-  const [CurrentWord, setCurrentWord] = React.useState("react")
+  const [CurrentWord, setCurrentWord] = React.useState(GetRandomWord())
   
   let WrongGuessesCount = guessedLetters.filter(letter =>!CurrentWord.includes(letter)).length
  
