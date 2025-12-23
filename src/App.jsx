@@ -82,7 +82,10 @@ function App() {
     farewellMessage: !isGameOver && islastGuessedLetterWrong
 })
    
- 
+  function startNewGame() {
+     setCurrentWord(GetRandomWord())
+     setGuessedLetters([])
+  }
     
 
 
@@ -113,7 +116,9 @@ function App() {
             
             </section>
     <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} isGameOver={isGameOver}/>
-     {isGameOver && <button
+     {isGameOver && 
+     <button
+      onClick={ startNewGame} 
       style={{ 
       backgroundColor: "#11B5E5",
        border: "1px solid #D7D7D7",
