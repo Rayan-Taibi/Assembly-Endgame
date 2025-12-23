@@ -30,3 +30,8 @@ section.keyboard > button.wrong {
     cursor: pointer;
     filter: brightness(90%);
 }
+.keyboard button:disabled {
+    background-color: #A9A9A9;
+    cursor: not-allowed;
+    filter: none;
+}

@@ -37,11 +37,12 @@ function App() {
     )
 
   })
+  const numGuessesLeft = languages.length - 1
   const isGameWon = CurrentWord.split('').every(letter => guessedLetters.includes(letter))
   const isGameLost = WrongGuessesCount >= languages.length -1
   const isGameOver = isGameWon || isGameLost
-  const lastGuressedLetter = guessedLetters[guessedLetters.length -1]
-  const islastGuessedLetterWrong = lastGuressedLetter && !CurrentWord.includes(lastGuressedLetter)
+  const lastGuessedLetter = guessedLetters[guessedLetters.length -1]
+  const islastGuessedLetterWrong = lastGuessedLetter && !CurrentWord.includes(lastGuessedLetter)
 
   
  
@@ -92,6 +93,24 @@ function App() {
     <Status renderGameStatus={renderGameStatus()} classNamesStatus={classNamesStatus}/>
     <Chips languagesList={languagesList} />
     <WordDisplay letterElements={letterElements} CurrentWord={CurrentWord} guessedLetters={guessedLetters} />
+    {/* Combined visually-hidden aria-live region for status updates */}
+            <section 
+                className="sr-only" 
+                aria-live="polite" 
+                role="status"
+            >
+                <p>
+                    {CurrentWord.includes(lastGuessedLetter) ? 
+                        `Correct! The letter ${lastGuessedLetter} is in the word.` : 
+                        `Sorry, the letter ${lastGuessedLetter} is not in the word.`
+                    }
+                    You have {numGuessesLeft} attempts left.
+                </p>
+                <p>Current word: {CurrentWord.split("").map(letter => 
+                guessedLetters.includes(letter) ? letter + "." : "blank.")
+                .join(" ")}</p>
+            
+            </section>
     <Keyboard CurrentWord={CurrentWord}  letterElements={letterElements} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} isGameOver={isGameOver}/>
      {isGameOver && <button
       style={{ 
