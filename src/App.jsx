@@ -17,13 +17,16 @@ function App() {
   
   let WrongGuessesCount = guessedLetters.filter(letter =>!CurrentWord.includes(letter)).length
  
-
-  const letterElements = CurrentWord.split('').map((letter, index) => (
-    
-    <span key={index} className="letter">
-       {guessedLetters.includes(letter) ? letter.toUpperCase() : ""}
-    </span>
-  ));
+  const isGameLost = WrongGuessesCount >= languages.length -1
+  const letterElements = CurrentWord.split('').map((letter, index) => {
+    const shouldRevealLetter = isGameLost || guessedLetters.includes(letter) 
+    const letterClassName = clsx( isGameLost && !guessedLetters.includes(letter) && "missed-letter" )
+    return( 
+        <span key={index} className={letterClassName}>
+           {shouldRevealLetter ? letter.toUpperCase() : ""}
+        </span>
+        )
+    })
   const languagesList = languages.map((lang , index)=>{
    const isLanguageLost = WrongGuessesCount > index 
    
@@ -40,7 +43,7 @@ function App() {
   })
   const numGuessesLeft = languages.length - 1
   const isGameWon = CurrentWord.split('').every(letter => guessedLetters.includes(letter))
-  const isGameLost = WrongGuessesCount >= languages.length -1
+  
   const isGameOver = isGameWon || isGameLost
   const lastGuessedLetter = guessedLetters[guessedLetters.length -1]
   const islastGuessedLetterWrong = lastGuessedLetter && !CurrentWord.includes(lastGuessedLetter)
