@@ -9,7 +9,7 @@ import { languages } from './language.js'
 import {clsx} from 'clsx'
 import {getFarewellText} from '../utils.js'
 import {GetRandomWord} from '../utils.js'
-
+import Confetti from "react-confetti"
 function App() {
   // State to hold guessed letters and current word
   const [guessedLetters,setGuessedLetters] = React.useState([])
@@ -95,7 +95,13 @@ function App() {
   
   return (
   <main>
-   
+    {
+       isGameWon && 
+       <Confetti 
+            recycle={false}
+            numberOfPieces={1000}
+       /> 
+    }
     <Header />
     <Status renderGameStatus={renderGameStatus()} classNamesStatus={classNamesStatus}/>
     <Chips languagesList={languagesList} />
