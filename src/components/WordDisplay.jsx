@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/wordDisplay.css'
+import '../styles/WordDisplay.css'
 export default function WordDisplay( {letterElements}  ) {
     
   return (
