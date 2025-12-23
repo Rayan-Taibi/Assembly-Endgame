@@ -4,20 +4,19 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 8px;
-    max-width: 450px;
-    margin-block: 30px;
-
+    gap: 5px;
+    max-width: 100%;
+    margin-block: 20px;
 }
 section.keyboard > button{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background-color: #FCBA29;
     color: #000000;
     border: 1px solid #D7D7D7;
     border-radius: 4px;
-
-
+    font-size: 13px;
+    
 }
 section.keyboard > button.correct {
     background-color: #10A95B;

@@ -17,8 +17,8 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-  
+    max-width: 400px;
+    width: 100%;
 }
 .sr-only {
     position: absolute;

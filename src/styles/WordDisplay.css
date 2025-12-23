@@ -6,11 +6,11 @@
     
 }
 section > span{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
-    height: 40px;
-    width: 40px;
-    padding: 6px;
+    height: 35px;
+    width: 35px;
+    padding: 4px;
     background-color: #323232;
     margin-right: 2px;
     display: flex;
